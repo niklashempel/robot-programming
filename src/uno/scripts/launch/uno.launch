@@ -1,0 +1,5 @@
+<launch>
+    <node name="node1" pkg="uno" type="node1.py" output="screen"/>
+    <node name="node2" pkg="uno" type="node2.py" output="screen"/>
+    <node name="node3" pkg="uno" type="node3.py" output="screen"/>
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+    <!-- Launch Bob Node node with its private hello parameter-->
+    <node name="Bob" pkg="parameters" type="robots.py" output="screen">
+        <param name="Hello" value="Hello"/>
+    </node>
+
+    <!-- Launch Alice Node node with its private hello parameter-->
+    <node name="Alice" pkg="parameters" type="robots.py" output="screen">
+        <param name="Hello" value="Ciao"/>
+    </node>
+
+    <node name="$(anon id)" pkg="parameters" type="robots.py" output="screen">
+        <param name="Hello" value="Ciao"/>
+    </node>
+</launch>

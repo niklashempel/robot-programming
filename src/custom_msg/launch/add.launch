@@ -1,0 +1,5 @@
+<launch>
+    <node name="client" pkg="custom_msg" type="client.py" output="screen"/>
+    <node name="server" pkg="custom_msg" type="server.py" output="screen"/>
+    <node name="add_node" pkg="custom_msg" type="add_node.py" output="screen"/>
+</launch>
