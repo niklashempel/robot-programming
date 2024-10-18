@@ -1,0 +1,34 @@
+{
+  "name": "ROS Noetic Development Container",
+  "remoteUser": "niklas",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "niklas",
+      "WORKSPACE_FOLDER": "/${localWorkspaceFolderBasename}"
+    }
+  },
+  "runArgs": ["--privileged", "--network=host", "--pid=host", "--ipc=host"],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-themes",
+        "twxs.cmake",
+        "donjayamanne.python-extension-pack",
+        "eamodio.gitlens",
+        "ms-iot.vscode-ros"
+      ]
+    }
+  },
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}"
+  },
+  "workspaceFolder": "/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
+  ],
+  "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /${localWorkspaceFolderBasename}"
+}
