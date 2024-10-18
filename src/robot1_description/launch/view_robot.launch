@@ -3,13 +3,13 @@
 	<arg name="model" />
 
 	<!-- Parsing xacro and setting robot_description parameter -->
-	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find robot1_description)/urdf/robot_model.xacro" />
+	<param name="robot_description" command="$(find xacro)/xacro $(find robot1_description)/urdf/robot1.urdf" />
 
 
 	<!-- Starting robot state publish which will publish tf -->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
 	<!-- Launch visualization in rviz -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot1_description)/config/model.rviz" required="true" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot1_description)/config/robot1.rviz" required="true" />
 
 </launch>
