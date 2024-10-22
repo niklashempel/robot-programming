@@ -28,11 +28,15 @@ RUN sudo apt update && sudo apt upgrade -y
 # Install Git
 RUN sudo apt install -y git
 
+# Install Turtlebot3 packages
+RUN sudo apt install -y ros-noetic-turtlebot3 ros-noetic-turtlebot3-simulations
+
 # Switch from root to user
 USER $USERNAME
 
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
+RUN echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
 RUN echo "source ${WORKSPACE_FOLDER}/devel/setup.bash" >> ~/.bashrc
 
 ################################
