@@ -1,0 +1,19 @@
+  <launch>
+    <!-- Turtlesim Node-->
+    <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="teleop" output="screen"/>
+
+    <node name="turtle11_tf_broadcaster" pkg="robot_setup_tf" type="tf_broadcaster.py" respawn="false" output="screen" >
+      <param name="turtle" type="string" value="turtle1" />
+    </node>
+    <node name="turtle12_tf_broadcaster" pkg="robot_setup_tf" type="tf_broadcaster.py" respawn="false" output="screen" >
+      <param name="turtle" type="string" value="turtle2" />
+    </node>
+
+    <node name="laser" pkg="robot_setup_tf" type="tf_laser_frame.py" />
+
+ <!-- <node name="dynamic_broadcaster" pkg="robot_setup_tf" type="tf_dynamic_broadcaster.py" /> -->
+ 
+    <node pkg="robot_setup_tf" type="tf_listener.py" name="listener" />
+
+  </launch>
