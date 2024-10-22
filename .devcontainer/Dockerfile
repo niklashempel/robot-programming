@@ -28,6 +28,9 @@ RUN sudo apt update && sudo apt upgrade -y
 # Install Git
 RUN sudo apt install -y git
 
+# Set python3 as default python version
+RUN sudo apt install -y python-is-python3
+
 # Install Turtlebot3 packages
 RUN sudo apt install -y ros-noetic-turtlebot3 ros-noetic-turtlebot3-simulations
 
