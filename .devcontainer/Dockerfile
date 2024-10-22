@@ -20,7 +20,7 @@ RUN apt-get update && \
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip
-ENV SHELL /bin/bash
+ENV SHELL=/bin/bash
 
 # Update all packages
 RUN sudo apt update && sudo apt upgrade -y
@@ -42,5 +42,6 @@ RUN echo "source ${WORKSPACE_FOLDER}/devel/setup.bash" >> ~/.bashrc
 ################################
 ## ADD ANY CUSTOM SETUP BELOW ##
 ################################
+RUN rosdep update 
 
 CMD ["/bin/bash"]
